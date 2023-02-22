@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #1b1b1b;
+}
+
+.score {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family:' Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+.map {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    background: url('grass.jpeg') no-repeat;
+    border-radius: 20px;
+}
+
+.map div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.snake {
+    background: url('snake.jpg') 0 / cover;
+}
+
+.snake-head {
+    position: relative;
+}
+
+.snake-head::before {
+    position: absolute;
+    content: '\01F440';
+    font-size: 30px;
+}
+
+.breadcrumb:not(.snake) {
+    background: url('breadcrumb.png') center / 100% no-repeat;
+    animation: pulse 2s linear infinite;
+}
+
+.snake.breadcrumb::after {
+    height: 100%;
+    width: 100%;
+    background: url('breadcrumb.png') center / 100% no-repeat;
+    content: '';
+    animation: pulse 2s linear infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.7);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.7);
+    }
+}
