@@ -9,7 +9,7 @@ const snakePos = [headSnakePos];
 
 
 
-setInterval(() => changePos(lastDirection), 500);
+setInterval(() => changePos(lastDirection), 750);
 
 createRandomBreadcrumb();
 
