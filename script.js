@@ -14,6 +14,7 @@ setInterval(() => changePos(lastDirection), 750);
 createRandomBreadcrumb();
 
 
+
 function changePos(newPos) {
     try {
         cells[headSnakePos + newPos].classList.contains('snake') && document.location.reload(); 
@@ -43,13 +44,11 @@ function changePos(newPos) {
 }
 
 function createRandomBreadcrumb() {
-    const space = [...cells].map((cell, i) => !(cell.classList.contains('snake')) ? i : -1).filter(a => a >= 0);
+    const space = [...cells].map((cell, i) => cell.classList.contains('snake') || cell.classList.contains('breadcrumb') ? -1 : i).filter(a => a >= 0);
     
-    let num1 = Math.floor(Math.random() * `${space.length}`[0]);
-    let num2 = Math.floor(Math.random() * `${space.length}`[1]);
-
-    cells[space[+(`${num1}${num1 > (mapLength - 2) ? 0 : num2}`)]].classList.add('breadcrumb');
+    cells[space[Math.floor(Math.random() * space.length)]]?.classList.add('breadcrumb');
 }
+
 
 
 document.addEventListener('keydown', e => {

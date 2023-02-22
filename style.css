@@ -36,7 +36,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
 }
 
 .snake {
@@ -67,13 +66,10 @@ body {
 }
 
 @keyframes pulse {
-    0% {
+    0%, 100% {
         transform: scale(0.7);
     }
     50% {
         transform: scale(1);
-    }
-    100% {
-        transform: scale(0.7);
     }
 }
